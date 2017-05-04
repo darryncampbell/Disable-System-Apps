@@ -15,6 +15,7 @@ tools:context="com.darryncampbell.disablesystemapps.MainActivity">
             android:id="@+id/txtInformation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
             android:text="Information"
             android:padding="10px"/>
 
@@ -22,6 +23,7 @@ tools:context="com.darryncampbell.disablesystemapps.MainActivity">
             android:id="@+id/btnEnableSelected"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
             android:text="Enable\nSelected"
             android:layout_below="@id/txtInformation"/>
 

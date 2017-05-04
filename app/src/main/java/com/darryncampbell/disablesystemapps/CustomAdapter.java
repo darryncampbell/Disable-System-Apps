@@ -52,7 +52,8 @@ public class CustomAdapter extends BaseAdapter {
 
     public static class ViewHolder
     {
-        public TextView rowText;
+        public TextView rowTextPackage;
+        public TextView rowTextApplication;
         public CheckBox rowCheck;
     }
 
@@ -64,7 +65,8 @@ public class CustomAdapter extends BaseAdapter {
         {
             inflatedView = inflater.inflate(R.layout.custom_list_row, null);
             heldView = new ViewHolder();
-            heldView.rowText = (TextView) inflatedView.findViewById(R.id.rowtext);
+            heldView.rowTextPackage = (TextView) inflatedView.findViewById(R.id.rowtextPackageName);
+            heldView.rowTextApplication = (TextView) inflatedView.findViewById(R.id.rowtextApplicationName);
             heldView.rowCheck = (CheckBox)inflatedView.findViewById(R.id.rowcheck);
             inflatedView.setTag( heldView );
         }
@@ -75,14 +77,16 @@ public class CustomAdapter extends BaseAdapter {
 
         if(data.size()<=0)
         {
-            heldView.rowText.setText("No Package");
+            heldView.rowTextPackage.setText("No Package");
+            heldView.rowTextApplication.setText("No Application");
             heldView.rowCheck.setChecked(false);
         }
         else
         {
             tempValues=null;
             tempValues = ( ListRow ) data.get( position );
-            heldView.rowText.setText( tempValues.getPackageName() );
+            heldView.rowTextPackage.setText( tempValues.getPackageName() );
+            heldView.rowTextApplication.setText( tempValues.getApplicationName() );
             heldView.rowCheck.setChecked( tempValues.getChecked() );
         }
 
@@ -94,7 +98,13 @@ public class CustomAdapter extends BaseAdapter {
                }
            }
         );
-        heldView.rowText.setOnClickListener(new View.OnClickListener() {
+        heldView.rowTextPackage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                heldView.rowCheck.performClick();
+            }
+        });
+        heldView.rowTextApplication.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 heldView.rowCheck.performClick();

@@ -15,17 +15,33 @@
         android:scaleY="1.5"
         />
 
-    <TextView
-        android:id="@+id/rowtext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left|center_vertical"
-        android:layout_marginLeft="10dip"
-        android:layout_marginTop="10dip"
-        android:layout_marginBottom="10dip"
-        android:layout_span="1"
-        android:layout_weight="1"
-        android:textColor="#000000"
-        android:textSize="16sp" />
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/rowtextPackageName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|top"
+            android:layout_marginLeft="10dp"
+            android:text="Application Name"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="2dp"
+            android:textColor="@color/zebraGray"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/rowtextApplicationName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center_vertical"
+            android:text = "Package Name"
+            android:layout_marginLeft="10dp"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+    </LinearLayout>
 
 </LinearLayout>

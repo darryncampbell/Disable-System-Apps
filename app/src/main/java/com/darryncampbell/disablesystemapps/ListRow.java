@@ -6,10 +6,15 @@ package com.darryncampbell.disablesystemapps;
 
 public class ListRow {
     private String packageName = "";
+    private String applicationName = "";
     private boolean checked = false;
 
     public void setPackageName(String packageName) {
         this.packageName = packageName;
+    }
+
+    public void setApplicationName(String applicationName) {
+        this.applicationName = applicationName;
     }
 
     public void setChecked(boolean checked) {
@@ -18,6 +23,10 @@ public class ListRow {
 
     public String getPackageName() {
         return packageName;
+    }
+
+    public String getApplicationName() {
+        return applicationName;
     }
 
     public boolean getChecked() {

@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity  {
     private ArrayList<ListRow> packageEnabledList = new ArrayList<>();
     CustomAdapter packageListAdapter;
     private String operating_system = "";
-    private String[] selectedPackages = null;
+    private String[][] selectedPackages = null;
     private EMDKProxy emdkProxy = null;
 
     @Override
@@ -96,6 +96,7 @@ public class MainActivity extends AppCompatActivity  {
                 Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
         {
             operating_system = "KitKat";
+            selectedPackages = PackagesList.kitkat_packages;
         }
         else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP &&
                 Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP_MR1)
@@ -107,6 +108,7 @@ public class MainActivity extends AppCompatActivity  {
                 Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
         {
             operating_system = "Lollipop 5.1";
+            selectedPackages = PackagesList.lollipop_51_packages;
         }
         else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
                 Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
@@ -118,10 +120,12 @@ public class MainActivity extends AppCompatActivity  {
                 Build.VERSION.SDK_INT < Build.VERSION_CODES.N_MR1)
         {
             operating_system = "Nougat 7.0";
+            selectedPackages = PackagesList.nougat_70_packages;
         }
         else if (Build.VERSION.SDK_INT == Build.VERSION_CODES.N_MR1)
         {
             operating_system = "Nougat 7.1";
+            selectedPackages = PackagesList.nougat_71_packages;
         }
         else
         {
@@ -136,11 +140,12 @@ public class MainActivity extends AppCompatActivity  {
         informationWindow.setText(information);
     }
 
-    public void populateListView(String[] packageList)
+    public void populateListView(String[][] packageList)
     {
         for (int i = 0; i < packageList.length; i++) {
             final ListRow temp = new ListRow();
-            temp.setPackageName(packageList[i]);
+            temp.setApplicationName(packageList[i][0]);
+            temp.setPackageName(packageList[i][1]);
             temp.setChecked(true);
             packageEnabledList.add(temp);
         }
