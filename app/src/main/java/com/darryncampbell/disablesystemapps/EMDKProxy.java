@@ -6,6 +6,7 @@ package com.darryncampbell.disablesystemapps;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.symbol.emdk.*;
 
@@ -15,9 +16,11 @@ public class EMDKProxy implements EMDKManager.EMDKListener {
     private ProfileManager profileManager = null;
     private EMDKManager emdkManager;
     private static final String LOG_TAG = "Disable System Apps";
+    private Context context;
 
     public EMDKProxy(Context context)
     {
+        this.context = context;
         //The EMDKManager object will be created and returned in the callback.
         EMDKResults results = EMDKManager.getEMDKManager(context, this);
         //Check the return status of getEMDKManager
@@ -30,8 +33,9 @@ public class EMDKProxy implements EMDKManager.EMDKListener {
     }
 
 
-    public void processProfile(String packageBeingProcessed, boolean disableApplication)
+    public boolean processProfile(String packageBeingProcessed, boolean disableApplication)
     {
+        Boolean processSuccess = false;
         String action = "enabled";
         if (disableApplication)
             action = "disabled";
@@ -40,15 +44,25 @@ public class EMDKProxy implements EMDKManager.EMDKListener {
             String[] modifyData = new String[1];
             modifyData[0] = DisableApplicationProfile(packageBeingProcessed, disableApplication);
 
-            EMDKResults results = profileManager.processProfile(packageBeingProcessed,
+            EMDKResults results = profileManager.processProfile("ApplicationManager",
                     ProfileManager.PROFILE_FLAG.SET, modifyData);
 
             if (results.statusCode == EMDKResults.STATUS_CODE.CHECK_XML)
-                Log.i(LOG_TAG, packageBeingProcessed + " successfully " + action);
+            {
+                String statusMessage = packageBeingProcessed + " successfully " + action;
+                Log.i(LOG_TAG, statusMessage);
+                processSuccess = true;
+                //Toast.makeText(context, statusMessage, Toast.LENGTH_SHORT).show();
+            }
             else
-                Log.w(LOG_TAG, packageBeingProcessed + " was NOT " + action);
+            {
+                //  todo there are too many toasts
+                String statusMessage = packageBeingProcessed + " was NOT " + action;
+                Log.w(LOG_TAG, statusMessage);
+                //Toast.makeText(context, statusMessage, Toast.LENGTH_SHORT).show();
+            }
         }
-
+        return processSuccess;
     }
 
     public String DisableApplicationProfile(String packageName, boolean disableApplication)
@@ -60,7 +74,7 @@ public class EMDKProxy implements EMDKManager.EMDKListener {
                 "    <parm name=\"ProfileName\" value=\"ApplicationManager\"/>\n" +
                 "    <parm name=\"ModifiedDate\" value=\"2017-01-25 08:07:34\"/>\n" +
                 "    <parm name=\"TargetSystemVersion\" value=\"6.0\"/>\n" +
-                "    <characteristic type=\"AppMgr\" version=\"5.1\">\n" +
+                "    <characteristic type=\"AppMgr\" version=\"4.4\">\n" +
                 "      <parm name=\"emdk_name\" value=\"AppManager\"/>\n" +
                 "      <parm name=\"Action\" value=\""+ disableOrEnable + "\"/>\n" +
                 "      <parm name=\"Package\" value=\"" + packageName + "\"/>\n" +

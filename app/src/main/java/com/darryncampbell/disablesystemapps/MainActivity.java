@@ -1,5 +1,6 @@
 package com.darryncampbell.disablesystemapps;
 
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -33,9 +34,6 @@ public class MainActivity extends AppCompatActivity  {
         populateInformationWindow();
         populateListView(selectedPackages);
 
-        //  Test Only
-        //createTestData();
-
         Button btnEnableSelected = (Button) findViewById(R.id.btnEnableSelected);
         btnEnableSelected.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,29 +50,36 @@ public class MainActivity extends AppCompatActivity  {
             }
         });
 
-        Button btnSelectAll = (Button) findViewById(R.id.btnSelectAll);
-        btnSelectAll.setOnClickListener(new View.OnClickListener() {
+        final Button btnSelectToggle = (Button) findViewById(R.id.btnSelectToggle);
+        btnSelectToggle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for (int i = 0; i < packageEnabledList.size(); i++)
+                if (btnSelectToggle.getText().equals("Select\nAll"))
                 {
-                    packageEnabledList.get(i).setChecked(true);
+                    //  Select
+                    for (int i = 0; i < packageEnabledList.size(); i++)
+                    {
+                        if (packageEnabledList.get(i).getInstalled())
+                            packageEnabledList.get(i).setChecked(true);
+                    }
+
+                    btnSelectToggle.setText("Select\nNone");
+                }
+                else
+                {
+                    //  Deselect
+                    for (int i = 0; i < packageEnabledList.size(); i++)
+                    {
+                        if (packageEnabledList.get(i).getInstalled())
+                            packageEnabledList.get(i).setChecked(false);
+                    }
+
+                    btnSelectToggle.setText("Select\nAll");
                 }
                 packageListAdapter.notifyDataSetChanged();
             }
         });
 
-        Button btnSelectNone = (Button) findViewById(R.id.btnSelectNone);
-        btnSelectNone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                for (int i = 0; i < packageEnabledList.size(); i++)
-                {
-                    packageEnabledList.get(i).setChecked(false);
-                }
-                packageListAdapter.notifyDataSetChanged();
-            }
-        });
 
         try
         {
@@ -146,43 +151,72 @@ public class MainActivity extends AppCompatActivity  {
             final ListRow temp = new ListRow();
             temp.setApplicationName(packageList[i][0]);
             temp.setPackageName(packageList[i][1]);
-            temp.setChecked(true);
+            temp.setChecked(false);
+            temp.setInstalled(isAppInstalled(packageList[i][1]));
             packageEnabledList.add(temp);
         }
     }
 
     public void EnableSelectedPackages()
     {
+        int overallResult = -1;
+        Boolean processResult = false;
         for (int i = 0; i < packageEnabledList.size(); i++)
         {
-            String packageBeingEnabled = packageEnabledList.get(i).getPackageName();
-            Log.i(LOG_TAG, "Enabling Package: " + packageBeingEnabled + " " + packageEnabledList.get(i).getChecked());
-            if (emdkProxy != null)
-                emdkProxy.processProfile(packageBeingEnabled, true);
+            if (packageEnabledList.get(i).getChecked()) {
+                overallResult = 0;
+                String packageBeingEnabled = packageEnabledList.get(i).getPackageName();
+                Log.i(LOG_TAG, "Enabling Package: " + packageBeingEnabled);
+                if (emdkProxy != null) {
+                    processResult = emdkProxy.processProfile(packageBeingEnabled, false);
+                }
+            }
         }
+        if (overallResult != -1)
+        {
+            if (processResult)
+                Toast.makeText(getApplicationContext(), "All selected packages successfully enabled", Toast.LENGTH_SHORT).show();
+            else
+                Toast.makeText(getApplicationContext(), "Problem disabling all selected packages", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
 
     public void DisableSelectedPackages()
     {
+        int overallResult = -1;
+        Boolean processResult = false;
         for (int i = 0; i < packageEnabledList.size(); i++)
         {
-            String packageBeingDisabled = packageEnabledList.get(i).getPackageName();
-            Log.i(LOG_TAG, "Disabling Package: " + packageEnabledList.get(i).getPackageName() + " " + packageEnabledList.get(i).getChecked());
-            if (emdkProxy != null)
-                emdkProxy.processProfile(packageBeingDisabled, false);
+            if (packageEnabledList.get(i).getChecked()) {
+                overallResult = 0;
+                String packageBeingDisabled = packageEnabledList.get(i).getPackageName();
+                Log.i(LOG_TAG, "Disabling Package: " + packageEnabledList.get(i).getPackageName());
+                if (emdkProxy != null) {
+                    processResult = emdkProxy.processProfile(packageBeingDisabled, true);
+                }
+            }
         }
-
+        if (overallResult != -1)
+        {
+            if (processResult)
+                Toast.makeText(getApplicationContext(), "All selected packages successfully disabled", Toast.LENGTH_SHORT).show();
+            else
+                Toast.makeText(getApplicationContext(), "Problem disabling all selected packages", Toast.LENGTH_SHORT).show();
+        }
     }
 
-    public void createTestData()
-    {
-        for (int i = 0; i < 101; i++) {
-            final ListRow temp = new ListRow();
-            temp.setPackageName("package " + i);
-            temp.setChecked(i % 2 == 0);
-            packageEnabledList.add(temp);
+    private boolean isAppInstalled(String packageName) {
+        PackageManager pm = getPackageManager();
+        boolean installed = false;
+        try {
+            pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
+            installed = true;
+        } catch (PackageManager.NameNotFoundException e) {
+            installed = false;
         }
+        return installed;
     }
 
 

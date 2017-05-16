@@ -36,19 +36,11 @@ tools:context="com.darryncampbell.disablesystemapps.MainActivity">
             android:layout_below="@id/txtInformation"/>
 
         <Button
-            android:id="@+id/btnSelectAll"
+            android:id="@+id/btnSelectToggle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Select\nAll"
             android:layout_toRightOf="@id/btnDisableSelected"
-            android:layout_below="@id/txtInformation"/>
-
-        <Button
-            android:id="@+id/btnSelectNone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Select\nNone"
-            android:layout_toRightOf="@id/btnSelectAll"
             android:layout_below="@id/txtInformation"/>
 
     </RelativeLayout>

@@ -8,6 +8,7 @@ public class ListRow {
     private String packageName = "";
     private String applicationName = "";
     private boolean checked = false;
+    private boolean installed = false;
 
     public void setPackageName(String packageName) {
         this.packageName = packageName;
@@ -21,6 +22,10 @@ public class ListRow {
         this.checked = checked;
     }
 
+    public void setInstalled(boolean installed) {
+        this.installed = installed;
+    }
+
     public String getPackageName() {
         return packageName;
     }
@@ -32,4 +37,6 @@ public class ListRow {
     public boolean getChecked() {
         return checked;
     }
+
+    public boolean getInstalled() { return installed; }
 }
