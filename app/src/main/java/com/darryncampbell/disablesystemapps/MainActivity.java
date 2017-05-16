@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+//  Uncomment this import statement if you have the authoritative list of GMS applications.
+//import com.darryncampbell.disablesystemapps.UNDER_NDA.PackagesList;
 
 
 import java.util.ArrayList;
@@ -149,6 +151,7 @@ public class MainActivity extends AppCompatActivity  {
     {
         for (int i = 0; i < packageList.length; i++) {
             final ListRow temp = new ListRow();
+            Log.d(LOG_TAG, "Debug: " + i + packageList[i][1]);
             temp.setApplicationName(packageList[i][0]);
             temp.setPackageName(packageList[i][1]);
             temp.setChecked(false);

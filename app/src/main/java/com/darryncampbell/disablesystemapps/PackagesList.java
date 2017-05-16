@@ -8,100 +8,456 @@ public class PackagesList {
 
     public static String[][] kitkat_packages = {
             {
-                    "Google Books",
-                    "com.google.android.apps.books",
+                    "Application",
+                    "com.google.android.youtube"
             },
             {
-                    "Browser Provider",
-                    "com.android.browser.provider"
-            }
-    };
-
-    public static String[][] lollipop_50_packages = {
+                    "Application",
+                    "com.android.providers.telephony"
+            },
             {
-                    "Google Play Services",
+                    "Application",
+                    "com.google.android.googlequicksearchbox"
+            },
+            {
+                    "Application",
+                    "com.android.providers.calendar"
+            },
+            {
+                    "Application",
+                    "com.android.providers.media"
+            },
+            {
+                    "Application",
+                    "com.google.android.onetimeinitializer"
+            },
+            {
+                    "Application",
+                    "com.android.wallpapercropper"
+            },
+            {
+                    "Application",
+                    "com.android.protips"
+            },
+            {
+                    "Application",
+                    "com.android.documentsui"
+            },
+            {
+                    "Application",
+                    "com.android.galaxy4"
+            },
+            {
+                    "Application",
+                    "com.android.externalstorage"
+            },
+            {
+                    "Application",
+                    "com.android.htmlviewer"
+            },
+            {
+                    "Application",
+                    "com.android.mms.service"
+            },
+            {
+                    "Application",
+                    "com.android.providers.downloads"
+            },
+            {
+                    "Application",
+                    "com.google.android.apps.genie.geniewidget"
+            },
+            {
+                    "Application",
+                    "com.android.browser"
+            },
+            {
+                    "Application",
+                    "com.google.android.configupdater"
+            },
+            {
+                    "Application",
+                    "com.android.soundrecorder"
+            },
+            {
+                    "Application",
+                    "com.android.defcontainer"
+            },
+            {
+                    "Application",
+                    "com.android.providers.downloads.ui"
+            },
+            {
+                    "Application",
+                    "com.android.vending"
+            },
+            {
+                    "Application",
+                    "com.android.pacprocessor"
+            },
+            {
+                    "Application",
+                    "com.android.certinstaller"
+            },
+            {
+                    "Application",
+                    "com.android.carrierconfig"
+            },
+            {
+                    "Application",
+                    "com.google.android.marvin.talkback"
+            },
+            {
+                    "Application",
+                    "com.android.contacts"
+            },
+            {
+                    "Application",
+                    "com.google.android.apps.inputmethod.hindi"
+            },
+            {
+                    "Application",
+                    "com.android.mms"
+            },
+            {
+                    "Application",
+                    "com.android.nfc"
+            },
+            {
+                    "Application",
+                    "com.android.stk"
+            },
+            {
+                    "Application",
+                    "com.android.launcher3"
+            },
+            {
+                    "Application",
+                    "com.android.backupconfirm"
+            },
+            {
+                    "Application",
+                    "com.android.statementservice"
+            },
+            {
+                    "Application",
+                    "com.google.android.gm"
+            },
+            {
+                    "Application",
+                    "com.google.android.apps.tachyon"
+            },
+            {
+                    "Application",
+                    "com.android.wallpaper.holospiral"
+            },
+            {
+                    "Application",
+                    "com.android.phasebeam"
+            },
+            {
+                    "Application",
+                    "com.google.zxing.client.android"
+            },
+            {
+                    "Application",
+                    "com.google.android.setupwizard"
+            },
+            {
+                    "Application",
+                    "com.android.providers.settings"
+            },
+            {
+                    "Application",
+                    "com.android.sharedstoragebackup"
+            },
+            {
+                    "Application",
+                    "com.google.android.music"
+            },
+            {
+                    "Application",
+                    "com.android.printspooler"
+            },
+            {
+                    "Application",
+                    "com.android.dreams.basic"
+            },
+            {
+                    "Application",
+                    "com.android.frameworks.telresources"
+            },
+            {
+                    "Application",
+                    "com.android.inputdevices"
+            },
+            {
+                    "Application",
+                    "com.android.musicfx"
+            },
+            {
+                    "Application",
+                    "com.google.android.apps.docs"
+            },
+            {
+                    "Application",
+                    "com.google.android.apps.maps"
+            },
+            {
+                    "Application",
+                    "com.google.android.apps.plus"
+            },
+            {
+                    "Application",
+                    "com.android.cellbroadcastreceiver"
+            },
+            {
+                    "Application",
+                    "com.google.android.webview"
+            },
+            {
+                    "Application",
+                    "com.android.qrd.engineeringmode"
+            },
+            {
+                    "Application",
+                    "com.android.server.telecom"
+            },
+            {
+                    "Application",
+                    "com.google.android.syncadapters.contacts"
+            },
+            {
+                    "Application",
+                    "com.android.poweroffhandlerapp"
+            },
+            {
+                    "Application",
+                    "com.android.keychain"
+            },
+            {
+                    "Application",
+                    "com.android.chrome"
+            },
+            {
+                    "Application",
+                    "com.android.dialer"
+            },
+            {
+                    "Application",
+                    "com.android.gallery3d"
+            },
+            {
+                    "Application",
+                    "com.google.android.packageinstaller"
+            },
+            {
+                    "Application",
                     "com.google.android.gms"
             },
             {
-                    "Google Backup Transport",
-                    "com.gogole.android.backuptransport"
+                    "Application",
+                    "com.google.android.gsf"
             },
             {
-                    "Market Feedback Agent",
+                    "Application",
+                    "com.google.android.tts"
+            },
+            {
+                    "Application",
+                    "com.android.calllogbackup"
+            },
+            {
+                    "Application",
+                    "com.google.android.partnersetup"
+            },
+            {
+                    "Application",
+                    "com.google.android.videos"
+            },
+            {
+                    "Application",
+                    "com.google.android.apps.location.beacon.beacontools"
+            },
+            {
+                    "Application",
+                    "com.dsi.ant.server"
+            },
+            {
+                    "Application",
+                    "com.android.proxyhandler"
+            },
+            {
+                    "Application",
                     "com.google.android.feedback"
+            },
+            {
+                    "Application",
+                    "com.google.android.apps.photos"
+            },
+            {
+                    "Application",
+                    "com.google.android.calendar"
+            },
+            {
+                    "Application",
+                    "com.android.managedprovisioning"
+            },
+            {
+                    "Application",
+                    "com.android.dreams.phototable"
+            },
+            {
+                    "Application",
+                    "com.android.noisefield"
+            },
+            {
+                    "Application",
+                    "com.android.providers.partnerbookmarks"
+            },
+            {
+                    "Application",
+                    "com.google.android.gsf.login"
+            },
+            {
+                    "Application",
+                    "com.sap.signature"
+            },
+            {
+                    "Application",
+                    "com.android.smspush"
+            },
+            {
+                    "Application",
+                    "com.android.wallpaper.livepicker"
+            },
+            {
+                    "Application",
+                    "com.android.apps.tag"
+            },
+            {
+                    "Application",
+                    "com.google.android.inputmethod.korean"
+            },
+            {
+                    "Application",
+                    "com.google.android.backuptransport"
+            },
+            {
+                    "Application",
+                    "com.google.android.apps.work.testdrive"
+            },
+            {
+                    "Application",
+                    "com.android.settings"
+            },
+            {
+                    "Application",
+                    "com.google.android.inputmethod.pinyin"
+            },
+            {
+                    "Application",
+                    "com.android.calculator2"
+            },
+            {
+                    "Application",
+                    "com.google.android.apps.books"
+            },
+            {
+                    "Application",
+                    "com.cerner.careaware.webgrinder"
+            },
+            {
+                    "Application",
+                    "com.android.wallpaper"
+            },
+            {
+                    "Application",
+                    "com.android.vpndialogs"
+            },
+            {
+                    "Application",
+                    "com.google.android.talk"
+            },
+            {
+                    "Application",
+                    "com.android.email"
+            },
+            {
+                    "Application",
+                    "com.android.phone"
+            },
+            {
+                    "Application",
+                    "com.android.shell"
+            },
+            {
+                    "Application",
+                    "com.android.providers.userdictionary"
+            },
+            {
+                    "Application",
+                    "com.google.android.inputmethod.japanese"
+            },
+            {
+                    "Application",
+                    "com.android.location.fused"
+            },
+            {
+                    "Application",
+                    "com.android.deskclock"
+            },
+            {
+                    "Application",
+                    "com.android.systemui"
+            },
+            {
+                    "Application",
+                    "com.android.exchange"
+            },
+            {
+                    "Application",
+                    "com.android.bluetoothmidiservice"
+            },
+            {
+                    "Application",
+                    "com.google.android.play.games"
+            },
+            {
+                    "Application",
+                    "com.google.android.apps.magazines"
+            },
+            {
+                    "Application",
+                    "com.android.bluetooth"
+            },
+            {
+                    "Application",
+                    "com.android.providers.contacts"
+            },
+            {
+                    "Application",
+                    "com.android.captiveportallogin"
+            },
+            {
+                    "Application",
+                    "com.google.android.inputmethod.latin"
             }
     };
 
-    public static String[][] lollipop_51_packages = {
-            {
-                    "Google Play Services",
-                    "com.google.android.gms"
-            },
-            {
-                    "Google Backup Transport",
-                    "com.gogole.android.backuptransport"
-            },
-            {
-                    "Market Feedback Agent",
-                    "com.google.android.feedback"
-            }
-    };
-
-    public static String[][] marshmallow_packages = {
-            {
-                    "ConfigUpdater",
-                    "com.google.android.configupdater",
-            },
-            {
-                    "Google Play Services",
-                    "com.google.android.gms"
-            },
-            {
-                    "Google Backup Transport",
-                    "com.gogole.android.backuptransport"
-            },
-            {
-                    "Market Feedback Agent",
-                    "com.google.android.feedback"
-            }
-    };
-
-    public static String[][] nougat_70_packages = {
-        {
-                    "ConfigUpdater",
-                    "com.google.android.configupdater",
-        },
-        {
-                    "Google Play Services",
-                    "com.google.android.gms"
-        },
-        {
-                    "Google Backup Transport",
-                    "com.gogole.android.backuptransport"
-        },
-        {
-                    "Market Feedback Agent",
-                    "com.google.android.feedback"
-        }
-    };
-
-    public static String[][] nougat_71_packages = {
-            {
-                    "ConfigUpdater",
-                    "com.google.android.configupdater",
-            },
-            {
-                    "Google Play Services",
-                    "com.google.android.gms"
-            },
-            {
-                    "Google Backup Transport",
-                    "com.gogole.android.backuptransport"
-            },
-            {
-                    "Market Feedback Agent",
-                    "com.google.android.feedback"
-            }
-    };
+    public static String[][] lollipop_50_packages = kitkat_packages;
+    public static String[][] lollipop_51_packages = lollipop_50_packages;
+    public static String[][] marshmallow_packages = lollipop_51_packages;
+    public static String[][] nougat_70_packages = marshmallow_packages;
+    public static String[][] nougat_71_packages = nougat_70_packages;
 
 }
+
+
+
+
+
+
+
+
+
