@@ -1,6 +1,9 @@
 # Disable-System-Apps
 Proof of concept to disable and enable various system apps on Zebra GMS devices
 
+*This plugin is provided without guarantee or warranty*
+=========================================================
+
 **List of GMS apps per OS**
 ==============
 As far as I know the list of GMS applications on each desert flavour is NDA so I can't include those in this application.  If you just clone and build the master branch the list of applications which can be enabled or disabled is built dynamically from the list of installed applications.
