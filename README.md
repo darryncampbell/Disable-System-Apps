@@ -1,7 +1,7 @@
 # Disable-System-Apps
 Proof of concept to disable and enable various system apps on Zebra GMS devices
 
-*This plugin is provided without guarantee or warranty*
+*This application is provided without guarantee or warranty*
 =========================================================
 
 **List of GMS apps per OS**
