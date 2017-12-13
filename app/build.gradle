@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.darryncampbell.disablesystemapps"
         minSdkVersion 19
@@ -20,9 +20,10 @@ android {
 }
 
 dependencies {
-    //  This should point to the SDK add-ons and are installed when you install EMDK for Android
-    provided fileTree(include: ['com.symbol.emdk.jar'], dir: 'C:\\Users\\darry\\AppData\\Local\\Android\\sdk\\add-ons\\addon-symbol_emdk-symbol-23\\libs')
-    compile fileTree(exclude: ['com.symbol.emdk.jar'], dir: 'libs')
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+    def sdkDir = properties.getProperty('sdk.dir')
+    provided fileTree(include: ['com.symbol.emdk.jar'], dir: sdkDir+'/add-ons/addon-symbol_emdk-symbol-23/libs/')
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {

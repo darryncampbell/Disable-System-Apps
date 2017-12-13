@@ -109,7 +109,8 @@ public class MainActivity extends AppCompatActivity  {
         {
             final PackageManager pm = getPackageManager();
             List<ApplicationInfo> packages = pm.getInstalledApplications(PackageManager.MATCH_SYSTEM_ONLY);
-            String[][] dynamicPackages = new String [packages.size() - 1][2];
+            //List<ApplicationInfo> packages = pm.getInstalledApplications(PackageManager.MATCH_DEFAULT_ONLY);
+            String[][] dynamicPackages = new String [packages.size()][2];
 
             int count = 0;
             for (int i = 0; i < packages.size(); i++) {
