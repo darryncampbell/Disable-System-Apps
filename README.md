@@ -1,7 +1,7 @@
 # Disable-System-Apps
 Proof of concept to disable and enable various system apps on Zebra GMS devices
 
-*This application is provided without guarantee or warranty*
+*This application is provided without guarantee or warranty.  Disabling the wrong application could require a factory reset to restrore the device to a useable state*
 =========================================================
 
 **List of GMS apps per OS**
