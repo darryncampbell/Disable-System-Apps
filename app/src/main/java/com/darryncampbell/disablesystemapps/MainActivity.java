@@ -125,6 +125,11 @@ public class MainActivity extends AppCompatActivity  {
                 dynamicPackages[count][1] = packages.get(i).packageName;
                 count++;
             }
+            java.util.Arrays.sort(dynamicPackages, new java.util.Comparator<String[]>() {
+               public int compare(String[] a, String[] b) {
+                   return a[1].compareTo(b[1]);
+               }
+            });
             selectedPackages = dynamicPackages;
             operating_system = "N/A - Applications are dynamically determined";
         }
